@@ -117,6 +117,11 @@ var QuickStatements = {
 	safeHTML : function ( h ) {
 		return h.replace(/</,'&lt').replace(/>/,'&gt').replace(/&/,'&amp;')
 	} ,
+
+	getUserLink : function ( userName ) {
+		var me = this ;
+		return "<a href='" + me.getSitePageURL( 'User:' + userName ) + "' target='_blank'>" + me.safeHTML( userName ) + "</a>";
+	},
 	
 	getBatchButtons : function ( d2 ) {
 		var me = this ;
@@ -151,7 +156,7 @@ var QuickStatements = {
 			var d2 = d.data[batch_id] ;
 			var h = '' ;
 			if ( d2.name != '' ) h += "<h2>" + me.safeHTML(d2.batch.name) + "</h2>" ;
-			h += "<p>User: <a href='https://www.wikidata.org/wiki/User:" + encodeURIComponent(d2.batch.user_name) + "' target='_blank'>" + me.safeHTML(d2.batch.user_name) + "</a>" ;
+			h += "<p>User: " + me.getUserLink(d2.batch.user_name) ;
 			h += " <small>(<a href='/quickstatements/#mode=batches&user="+encodeURIComponent(d2.batch.user_name)+"' onclick='QuickStatements.batchesByUser(\""+encodeURIComponent(d2.batch.user_name)+"\");return false'>batches by this user</a>)</small>" ;
 			h += "</p>" ;
 			h += "<p>Status: <b>" + d2.batch.status + "</b> <small>" + me.safeHTML(d2.batch.message) + "</small></p>" ;
@@ -221,7 +226,7 @@ var QuickStatements = {
 				var batch_id = d2.batch.id ;
 				h += "<tr>" ;
 				h += "<td><a href='#mode=batch&batch="+batch_id+"'>"+batch_id+"</td>" ;
-				h += "<td nowrap><a href='https://www.wikidata.org/wiki/User:" + encodeURIComponent(d2.batch.user_name) + "' target='_blank'>" + me.safeHTML(d2.batch.user_name) + "</a></td>" ;
+				h += "<td nowrap>" + me.getUserLink(d2.batch.user_name) + "</td>" ;
 				h += "<td>" + me.safeHTML(d2.batch.name) + "</td>" ;
 				h += "<td>" ;
 				h += "<div>" + me.safeHTML(d2.batch.status) + " <small>" + me.safeHTML(d2.batch.message) + "</small></div>" ;
