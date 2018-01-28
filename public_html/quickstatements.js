@@ -75,12 +75,12 @@ var QuickStatements = {
 
 	getSiteAPI : function () {
 		var me = this ;
-		return 'https://' + me.sites[me.site].server + '/w/api.php' ;
+		return me.sites[me.site].api;
 	} ,
 	
 	getSitePageURL : function ( page ) {
 		var me = this ;
-		return '//' + me.sites[me.site].server + '/wiki/' + encodeURIComponent ( page.replace(/ /g,'_') ) ;
+		return me.sites[me.site].pageBase + encodeURIComponent( page.replace( / /g, '_' ) );
 	} ,
 	
 	lang : function () {
