@@ -21,6 +21,7 @@ var QuickStatements = {
 
 			me.tt.addILdropdown ( $('#interface_language_wrapper') ) ;
 			me.setSite ( 'wikidata' ) ;
+			me.setSite ( 'factgrid' ) ; // HACK
 			me.updateUserInfo() ;
 			me.params = me.getUrlVars() ;
 		

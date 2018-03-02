@@ -67,6 +67,7 @@ class QuickStatements {
 	public function __construct () {
 		$this->sites = json_decode ( file_get_contents ( __DIR__ . '/sites.json' ) ) ;
 		$this->wd = new WikidataItemList () ;
+		$this->logfile = '/home/factgrid/quickstatements/tool.log' ; // HACK
 	}
 /*	
 	public function setBatchRun ( $is_batch ) {
@@ -526,6 +527,7 @@ if ( !isset($o->id) ) print_r ( $o ) ;
 	
 	protected function getSite () {
 		$site = $this->site ;
+		$site = 'factgrid' ; // HACK
 		return $this->sites->$site ;
 	}
 	
