@@ -1304,7 +1304,6 @@ exit ( 1 ) ; // Force bot restart
 		$q = strtoupper ( trim ( $q ) ) ;
 		if ( preg_match ( '/^Q\d+$/' , $q ) ) return 'item' ;
 		if ( preg_match ( '/^P\d+$/' , $q ) ) return 'property' ;
-		if ( preg_match ( '/^".*"$/' , $q ) ) return 'string' ;
 		return 'unknown' ;
 	}
 
