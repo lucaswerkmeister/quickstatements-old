@@ -1160,7 +1160,7 @@ exit ( 1 ) ; // Force bot restart
 	}
 
 	protected function isValidItemIdentifier ( $q ) {
-		return preg_match ( '/^[PQ]\d+$/' , $q ) ;
+		return preg_match ( '/^(?:[PQL]\d+|L\d+-[FS]\d+)$/' , $q ) ;
 	}
 
     protected function importDataFromCSV ( $data, &$ret ) {
