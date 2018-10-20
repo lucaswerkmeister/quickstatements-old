@@ -682,7 +682,8 @@ var QuickStatements = {
 			html = '<i>LAST ITEM</i>' ;
 		} else if ( i.match ( /^(?:[PQL]\d+|L\d+-[FS]\d+)$/i ) ) { // ENTITY
 			var letter = i.substr(0,1).toUpperCase() ;
-			html = "<a class='wd_unlabeled' pq='"+i+"' href='" + me.getSitePageURL(me.types[letter].ns_prefix+i) + "' target='_blank'>" + i + "</a> <small>[" + i + "]</small>"
+			var title = me.types[letter].ns_prefix + i.replace('-', '#') ;
+			html = "<a class='wd_unlabeled' pq='"+i+"' href='" + me.getSitePageURL(title) + "' target='_blank'>" + i + "</a> <small>[" + i + "]</small>"
 
 		} else { // DUNNO
 			html = me.htmlSafe ( i ) ;
